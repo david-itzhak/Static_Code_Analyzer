@@ -5,3 +5,7 @@ content:
 - Sorting a list
 - Experiments with Python shell
 - Debugging in shell
+- Copy of an object
+- Docstrings
+- Function annotations
+- Unit testing in Python

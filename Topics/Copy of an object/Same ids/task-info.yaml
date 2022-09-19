@@ -1,0 +1,19 @@
+type: choice
+is_multiple_choice: true
+options:
+- text: my_list[1][0], list_copy[1][0]
+- text: my_list, list_copy
+- text: None of the options
+- text: my_list[0][0], list_copy[1][1]
+- text: my_list[0], list_copy[0]
+files:
+- name: main.py
+  visible: true
+  text: |+
+    #  You can experiment here, it won’t be checked
+
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9271#comment
+status: Solved
+record: -1
+local_check: false
