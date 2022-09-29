@@ -1,0 +1,16 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    import re
+
+
+    template = ''
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10361#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 28 Sep 2022 16:17:34 UTC
+record: -1

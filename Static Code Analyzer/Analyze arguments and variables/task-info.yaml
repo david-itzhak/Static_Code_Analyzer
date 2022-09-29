@@ -260,8 +260,8 @@ files:
                     return CheckResult.wrong(FALSE_ALARM + "The None keyword starts with a capital letter. ")
 
             if not len(output) == 2:
-                return CheckResult.wrong("A wrong number of warning messages. "
-                                         "Your program should warn about two mistakes in this test case")
+                return CheckResult.wrong("Incorrect number of warning messages. "
+                                         "Your program should warn about two mistakes in this test case.")
             for i, j in enumerate([3, 9]):
                 if not output[i].startswith(f"{file_path}: line {j}: {error_code_var_func_name}"):
                     return CheckResult.wrong(VAR_FUNC_NAME)

@@ -290,8 +290,8 @@ files:
 
             # positive test
             if not len(output) == 2:
-                return CheckResult.wrong("A wrong number of warning messages. "
-                                         "Your program should warn about two mistakes in this test case")
+                return CheckResult.wrong("Incorrect number of warning messages. "
+                                         "Your program should warn about two mistakes in this test case.")
             for i, j in enumerate([6, 7]):
                 if not output[i].startswith(f"{file_path}: line {j}: {error_code_comments}"):
                     return CheckResult.wrong(TWO_SPACES_BEFORE_COMMENT)
@@ -438,6 +438,101 @@ files:
     if __name__ == '__main__':
         AnalyzerTest("analyzer.code_analyzer").run_tests()
   learner_created: false
+- name: analyzer/analyzer.py
+  visible: true
+  text: |
+    def check_line_length(line_text: str):
+        if len(line_text) > 79:
+            return True
+
+
+    def check_indentation(line_text: str):
+        if (len(line_text) - len(line_text.strip())) % 4 != 0:
+            return True
+
+
+    def check_unnecessary_semicolon(line_text: str):
+        if line_text.split("#")[0].strip().endswith(';'):
+            return True
+
+
+    def check_spaces_before_inline_comments(line_text: str):
+        line_text = line_text.lstrip()
+        if not line_text.startswith("#") and '#' in line_text and not line_text.split("#")[0].endswith('  '):
+            return True
+
+
+    def check_todo(line_text: str):
+        if '#' in line_text and 'todo' in line_text.split("#")[1].lower():
+            return True
+
+
+    def check_blank_lines_before(blank_lines: int):
+        if blank_lines > 2:
+            return True
+
+
+    text_analyze_functions = {
+        check_line_length: 'S001 Too long',
+        check_indentation: 'S002 Indentation is not a multiple of four',
+        check_unnecessary_semicolon: 'S003 Unnecessary semicolon',
+        check_spaces_before_inline_comments: 'S004 At least two spaces required before inline comments',
+        check_todo: 'S005 TODO found'
+    }
+
+
+    def check_lines(code_lines: str, python_file: str):
+        blank_lines = 0
+        for line_number, line_text in enumerate(code_lines, start=1):
+            if line_text:
+                for func, message in text_analyze_functions.items():
+                    if func(line_text):
+                        print(f'{python_file}: Line {line_number}: {message}')
+                if check_blank_lines_before(blank_lines):
+                    print(f'{python_file}: Line {line_number}: S006 More than two blank lines used before this line')
+                blank_lines = 0
+            else:
+                blank_lines += 1
+  learner_created: true
+- name: analyzer/utils.py
+  visible: true
+  text: |-
+    from sys import argv
+    from argument_error import ArgumentError
+    import os
+
+
+    def get_code_lines_list(path: str) -> list[str]:
+        file_text: str = None
+        while not file_text:
+            try:
+                with open(path, 'r') as checked_file:
+                    file_text = checked_file.read()
+                code_lines = file_text.splitlines()
+                return code_lines
+            except Exception as err:
+                print(err)
+
+
+    def get_path_arg():
+        args = argv
+        if len(args) > 1:
+            return args[1]
+        else:
+            raise ArgumentError
+
+
+    def get_python_files(directory_path):
+        with os.scandir(directory_path) as entries:
+            return [directory_path + '\\' + entry.name for entry in entries if entry.is_file() and entry.name.endswith('.py')]
+  learner_created: true
+- name: analyzer/argument_error.py
+  visible: true
+  text: |
+    class ArgumentError(Exception):
+        def __str__(self):
+            return "Command line argument with directory isn't provided"
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/9906#comment
 status: Unchecked
 record: -1
