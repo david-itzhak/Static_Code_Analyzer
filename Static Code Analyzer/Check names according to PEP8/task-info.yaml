@@ -534,5 +534,8 @@ files:
             return "Command line argument with directory isn't provided"
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/9906#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Thu, 29 Sep 2022 09:39:57 UTC
+record: 4

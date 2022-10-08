@@ -10,7 +10,7 @@ def get_code_lines_list(path: str) -> list[str]:
             with open(path, 'r') as checked_file:
                 file_text = checked_file.read()
             code_lines = file_text.splitlines()
-            return code_lines
+            return code_lines, file_text
         except Exception as err:
             print(err)
 

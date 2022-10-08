@@ -4,8 +4,8 @@ from analyzer import check_lines
 
 
 def analyze_file(python_file: str):
-    code_lines: list[str] = get_code_lines_list(python_file)
-    check_lines(code_lines, python_file)
+    code_lines, script = get_code_lines_list(python_file)
+    check_lines(code_lines, python_file, script)
 
 
 def main():
@@ -17,7 +17,6 @@ def main():
         for python_file in python_files:
             analyze_file(python_file)
 
-# Ситуация на сегодняшний день.
 
 if __name__ == '__main__':
     main()

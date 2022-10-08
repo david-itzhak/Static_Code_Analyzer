@@ -13,3 +13,6 @@ content:
 - Regexp sets and ranges
 - Shorthands
 - Regexp quantifiers
+- Custom generators
+- Multi-line programs
+- ast module

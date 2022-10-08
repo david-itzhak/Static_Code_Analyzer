@@ -58,7 +58,9 @@ statistics.median.__doc__
 #    &gt;&gt;&gt; median([1, 3, 5, 7])
 #    4.0
 </code></pre>
-<p></p><div class="alert alert-primary">The <code class="language-python">help()</code> function also allows you to access a docstring for the object without importing it. To do so, you just need to pass its name in <strong>quotes</strong>: for example, <code class="language-python">help('statistics.median')</code>.</div><p></p>
+<p> </p>
+<p></p><div class="alert alert-primary">The <code class="language-python">help()</code> function also allows you to access a docstring for the object without importing it. To do so, you just need to pass its name in <strong>quotes</strong>: for example, <code class="language-python">help('statistics.median')</code>.</div>
+<p> </p>
 <p>Now let's move further and learn more about docstrings.</p>
 <h5 id="types-of-docstrings">Types of docstrings</h5>
 <p>The two main types of documentation strings in Python are <em>one-liners</em> and <em>multi-liners</em>. In the previous example, the docstring for the <code class="language-python">median()</code> function is a multi-line docstring. However, the very first line of it can be regarded as a one-liner itself:</p>
@@ -88,7 +90,9 @@ statistics.median.__doc__
 <p>As in the example with <code class="language-python">median()</code>, we can access the annotation via <code class="language-python">__doc__</code>.</p>
 <pre><code class="language-python">print(count_factorial.__doc__)
 # Return the factorial of the number.</code></pre>
-<p></p><div class="alert alert-primary">If you have backslashes in your docstring, you should also wrap it with the <code class="language-python">r</code> prefix, for example, as in <code class="language-python">r"""A \new example with \triple double-quotes."""</code>. Otherwise, the combination of a backslash and a letter will be handled as an escape sequence.</div><p></p>
+<p> </p>
+<p></p><div class="alert alert-primary">If you have backslashes in your docstring, you should also wrap it with the <code class="language-python">r</code> prefix, for example, as in <code class="language-python">r"""A \new example with \triple double-quotes."""</code>. Otherwise, the combination of a backslash and a letter will be handled as an escape sequence.</div>
+<p> </p>
 <h5 id="multi-line-docstrings-for-functions-and-methods">Multi-line docstrings for functions and methods</h5>
 <p>Now, let's create a bit more elaborate description of the function's behavior. Following the general structure above, we start by leaving the first line unchanged: it continues to be the main summary of our function. Next, the multi-line docstring for a method or a function should include the information about the arguments, return values, and other points concerning it. In the example below, we indicate the right argument type for <code class="language-python">num</code>, what value the function returns, and what this return value denotes:</p>
 <pre><code class="language-python">def count_factorial(num):
@@ -171,5 +175,5 @@ class Person:
 <h5 id="summary">Summary</h5>
 <p>In this topic, we covered recommendations concerning the style of writing docstrings with respect to PEP 257. Although this is the prevalent style of designing docstrings, other style guides also exist. For example, you can check out <a href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings" rel="noopener noreferrer nofollow" target="_blank">Google-format</a> docstrings.</p>
 <p>Generally, docstrings can be used to describe the behavior of modules, classes, functions, and so forth. Python uses triple-double quotes <code class="language-python">""" """</code> for them. The two main types of docstrings are one-liners and multi-liners.</p>
-<p>You can find the object's docstring in its source code. To access it without looking throught the source code, use the <code class="language-python">help()</code> function or the <code class="language-python">__doc__</code> attribute.</p>
+<p>You can find the object's docstring in its source code. To access it without looking through the source code, use the <code class="language-python">help()</code> function or the <code class="language-python">__doc__</code> attribute.</p>
 <p>Now, let's practice!</p></body></html>
