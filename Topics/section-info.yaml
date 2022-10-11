@@ -16,3 +16,4 @@ content:
 - Custom generators
 - Multi-line programs
 - ast module
+- Itertools module
